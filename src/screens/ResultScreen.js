@@ -1,12 +1,10 @@
 import React, { Component }from 'react';
-import { View, SafeAreaView, Image, FlatList, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, SafeAreaView, Image, FlatList, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import RecipesSearched from '../components/recipesSearched';
 import CardView from 'react-native-cardview'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import settings from '../public/settings';
 
-const API_KEY = '950d0f08c6464737acd596bd21ba8ac5';
-const url = 'https://api.spoonacular.com/recipes/';
-///id/analyzedInstructions
 export default class ResultScreen extends Component {
     constructor(props){
         super(props)
@@ -23,7 +21,7 @@ export default class ResultScreen extends Component {
     async getRecipes() {
         const { ingredients } = this.props.route.params;
         try{
-            const req = await fetch(`${url}search?query=${ingredients}&number=10&instructionsRequired=true&apiKey=${API_KEY}`);
+            const req = await fetch(`${settings.URL}search?query=${ingredients}&number=10&instructionsRequired=true&apiKey=${settings.API_KEY}`);
             const result = await req.json();
             for(let items of result.results){
                 this.state.recipes.push(items);
@@ -71,7 +69,13 @@ export default class ResultScreen extends Component {
             source={{uri: `https://spoonacular.com/recipeImages/${item.image}`}}
             ready={item.readyInMinutes}
             servings={item.servings}
-            onPress={() => this.props.navigation.navigate('Instructions', {id: item.id})}
+            onPress={() => this.props.navigation.navigate('Instructions', {
+                                                                            id: item.id, 
+                                                                            title: item.title, 
+                                                                            servings: item.servings,
+                                                                            readyInMinutes: item.readyInMinutes,
+                                                                            img: item.image
+                                                                        })}
             />
         )
     }
@@ -88,19 +92,21 @@ export default class ResultScreen extends Component {
                 style={styles.resultBox}>
                     <Text style={styles.title}>Recipes</Text>
                     <Text style={styles.description}>Take advantage of our list of recipes made for you!</Text>
-                    <View style={{alignItems:'center', marginLeft: -16}}>
-                    <Carousel
-                        ref={ref => this._carousel = ref}
-                        data={this.state.recipes}
-                        renderItem={this._renderItem}
-                        sliderWidth={250}
-                        layoutCardOffset={9}
-                        itemWidth={200}
-                        layout={'default'}
-                        onSnapToItem = { index => this.setState({activeSlide:index}) }
-                        />
-                        { this.pagination }
-                    </View>
+                    {this.state.isLoading ? <ActivityIndicator /> : (
+                        <View style={{alignItems:'center', marginLeft: -16}}>
+                            <Carousel
+                            ref={ref => this._carousel = ref}
+                            data={this.state.recipes}
+                            renderItem={this._renderItem}
+                            sliderWidth={250}
+                            layoutCardOffset={9}
+                            itemWidth={200}
+                            layout={'default'}
+                            onSnapToItem = { index => this.setState({activeSlide:index}) }
+                            />
+                            {this.pagination}
+                        </View>
+                    )}
                    
                 </CardView>
             </SafeAreaView>    
@@ -121,7 +127,7 @@ const styles = StyleSheet.create({
         flex: 1, 
         width: null,
         height: null,
-        resizeMode: 'stretch',
+        resizeMode: 'cover',
     },
     resultBox: {
         height: 480,

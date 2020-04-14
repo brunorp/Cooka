@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flex: 1, 
         width: null,
         height: null,
-        resizeMode: 'stretch',
+        resizeMode: 'cover',
         borderTopRightRadius: 16,
         borderTopLeftRadius: 16
     },
