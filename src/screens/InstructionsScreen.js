@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, Text, Image, StyleSheet, Dimensions, FlatList, ActivityIndicator } from 'react-native';
+import { View, SafeAreaView, Text, Image, StyleSheet, Dimensions, FlatList, ActivityIndicator, ScrollView } from 'react-native';
 import settings from '../public/settings';
 import InstructionsComponent from '../components/instructionsComponent';
 import IngredientsComponent from '../components/ingredientsComponent';
@@ -14,7 +14,7 @@ export default class InstructionsScreen extends Component {
       isLoading: true,
       info: [],
       instructions: [],
-      ingredients: [] // imgs => https://spoonacular.com/cdn/ingredients_100x100/img.png
+      ingredients: []
     }
   }
 
@@ -26,7 +26,7 @@ export default class InstructionsScreen extends Component {
       for (const item of resInfo.extendedIngredients) {
         this.state.ingredients.push(item);
       }
-      for (const item of resInfo.analyzedInstructions) {
+      for (const item of resInfo.analyzedInstructions[0].steps) {
         this.state.instructions.push(item);
       }
       this.state.info.push(resInfo.aggregateLikes, resInfo.vegetarian)
@@ -53,6 +53,15 @@ export default class InstructionsScreen extends Component {
     );
   }
 
+  renderInstruction({item}) {
+    return(
+      <InstructionsComponent 
+        number={item.number}
+        step={item.step}
+      />
+    )
+  }
+
   render() {
     const { img, title, servings, readyInMinutes } = this.props.route.params;
     return (
@@ -60,7 +69,7 @@ export default class InstructionsScreen extends Component {
           <View style={styles.header}>
             <Image style={styles.img} source={{uri: `https://spoonacular.com/recipeImages/${img}`}}/>
           </View>
-          <View style={styles.containerInfo}>
+          <ScrollView style={styles.containerInfo}>
             <View style={{borderWidth: 3, alignSelf: 'center', width: 65, borderColor: 'rgba(219, 219, 219, 0.8)', borderRadius: 5, marginTop: 16}}/>
             <View style={{marginHorizontal:50}}>
               <Text style={styles.title}>{title}</Text>
@@ -77,7 +86,7 @@ export default class InstructionsScreen extends Component {
               <Text style={{...styles.title, fontSize: 22}}>Ingredients</Text>
             </View>
             {this.state.isLoading ? <ActivityIndicator /> : (
-              <View style={{marginHorizontal:24, marginTop: 24, marginBottom: 24, flex: 1}}>
+              <View style={styles.flat}>
                 <FlatList 
                   showsVerticalScrollIndicator={false}
                   data={this.state.ingredients}
@@ -86,7 +95,19 @@ export default class InstructionsScreen extends Component {
                 />
               </View>
             )}
-          </View>
+            <Text style={{...styles.title, fontSize: 22}}>Instructions</Text>
+            {this.state.isLoading ? <ActivityIndicator /> : (
+              <View style={styles.flat}>
+                <FlatList 
+                  showsVerticalScrollIndicator={false}
+                  data={this.state.instructions}
+                  renderItem={this.renderInstruction}
+                  keyExtractor={item => item.id}
+                />
+              </View>
+            )}
+            
+          </ScrollView>
       </SafeAreaView>
     )
   }
@@ -131,5 +152,11 @@ const styles = StyleSheet.create({
   horizontal: {
     flexDirection: 'row', 
     alignItems: 'center'
+  },
+  flat: {
+    marginHorizontal:24, 
+    marginTop: 24, 
+    marginBottom: 24, 
+    flex: 1
   }
 })
