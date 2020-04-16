@@ -1,6 +1,7 @@
 # Cooka
  
-A React Native mobile app that allows people to search for kitchen recipes using ingredients they have at home.
+A React Native mobile app that allows people to search for cooking recipes using ingredients they have at home.
+The application consumes the [Spoonacular API](https://spoonacular.com/food-api). 
 
 ## Screenshots
 ![Alt text](https://i.imgur.com/TLEaoIx.jpg "Menu")
