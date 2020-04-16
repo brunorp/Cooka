@@ -5,7 +5,7 @@ The application consumes the [Spoonacular API](https://spoonacular.com/food-api)
 
 ## Screenshots
 ![Alt text](https://i.imgur.com/TLEaoIx.jpg "Menu")
-![Alt text](https://i.imgur.com/6n0HKsb.jpg "Results")
+![Alt text](https://i.imgur.com/UemBIQe.jpg "Results")
 
 ## Contributing
  
