@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, TouchableOpacity, StyleSheet, Text, Image } from 'react-native';
 
-export default class MealTimes extends Component {
+export default class MealTimes extends PureComponent {
     constructor(props){
         super(props);
     }

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { View, TouchableOpacity, StyleSheet, Image, Text } from 'react-native';
 
 // import { Container } from './styles';
 
-export default class Recommended extends Component {
+export default class Recommended extends PureComponent {
     constructor(props){
         super(props)
     }

@@ -12,7 +12,12 @@ The application consumes the [Spoonacular API](https://spoonacular.com/food-api)
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
  
 Please make sure to update tests as appropriate.
- 
+
+## Development Environment Errors Fixes
+> Failed to install the app. Make sure you have the Android development environment set up
+
+*cd android && ./gradlew clean* (repeat with *chmod +x gradlew* if permissions error)
+
 ## License
  
 [MIT](https://choosealicense.com/licenses/mit/)
