@@ -14,11 +14,11 @@ export default class RecipesSearched extends Component {
             </View>
             <View style={styles.resultBox}>
                 <Text style={styles.title}>{this.props.title}</Text>
-                <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 16, justifyContent:'center'}}>
+                <View style={{flexDirection: 'row', alignItems: 'center', marginTop: 16,  marginLeft: 24}}>
                     <Text style={styles.subtitle}>Ready in: </Text>
-                    <Text style={styles.answer}>{this.props.ready}</Text>
+                    <Text style={styles.answer}>{this.props.ready} minutes.</Text>
                 </View>
-                <View style={{flexDirection: 'row', alignItems: 'center', justifyContent:'center'}}>
+                <View style={{flexDirection: 'row', alignItems: 'center', marginLeft: 24}}>
                     <Text style={styles.subtitle}>servings: </Text>
                     <Text style={styles.answer}>{this.props.servings}</Text>
                 </View>   
