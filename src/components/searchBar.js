@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import CardView from 'react-native-cardview'
 
-export default class searchBar extends Component {
+export default class searchBar extends PureComponent {
     constructor(props){
         super(props)
     }
