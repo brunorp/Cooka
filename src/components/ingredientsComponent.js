@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, StyleSheet, Image, Text } from 'react-native';
 
-export default class IngredientsComponent extends Component {
+export default class IngredientsComponent extends PureComponent {
   render() {
     return (
         <View>
