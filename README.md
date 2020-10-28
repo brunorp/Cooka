@@ -6,14 +6,14 @@
 
 <p align="center">
   <a href="https://github.com/brunorp">
-    <img alt="Made by Bruno Rossetto" src="https://img.shields.io/badge/made%20by-Bruno%20Rossetto-brightgreen">
+    <img alt="Made by Bruno Rossetto" src="https://img.shields.io/badge/made%20by-Bruno%20Rossetto-blue">
   </a>
 
   <img alt="Last Commit" src="https://img.shields.io/github/last-commit/brunorp/Cooka">
 
   <img alt="Contributors" src="https://img.shields.io/github/contributors/brunorp/Cooka">
 
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-orange">
 </p>
 
 ![Alt text](https://i.imgur.com/TLEaoIx.jpg "Menu")
