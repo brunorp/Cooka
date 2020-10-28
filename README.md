@@ -1,12 +1,3 @@
-dotnet new sln -o bowling-score-project
-cd bowling-score-project
-dotnet new classlib -o BowlingGame
-ren .\BowlingGame\Class1.cs BowlingGame.cs
-dotnet sln add ./BowlingGame/BowlingGame.csproj
-dotnet new xunit -o BowlingGame.Tests
-dotnet add ./BowlingGame.Tests/BowlingGame.Tests.csproj reference ./BowlingGame/BowlingGame.csproj
-dotnet sln add ./BowlingGame.Tests/BowlingGame.Tests.csproj
-
 <h2 align="center">
   Cooka App
 </h2>
