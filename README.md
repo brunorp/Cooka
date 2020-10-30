@@ -58,7 +58,7 @@ git clone https://github.com/brunorp/Cooka
 
 #### iOS - _MAC Only_
 
-- `cd ios && pod install && cd ..`
+- `npm install`
 
 - `react-native run-ios`
 
