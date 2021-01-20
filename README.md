@@ -57,13 +57,13 @@ git clone https://github.com/brunorp/Cooka
 
 - `$ npm install`
 
-- `$ react-native run-android`
+- `$ npx react-native run-android`
 
 #### iOS - _MAC Only_
 
 - `npm install`
 
-- `react-native run-ios`
+- `npx react-native run-ios`
 
 ---
 
@@ -83,9 +83,11 @@ git clone https://github.com/brunorp/Cooka
 ### Build with
 
 - Core
-  - [React Native](https://reactnative.dev/) - A framework for building native apps with React
+  - [React Native](https://reactnative.dev/) - A framework for building native apps with React.
 - Navigation
-  - [React Navigation](https://reactnavigation.org/) - Routing and navigation for your React Native apps
+  - [React Navigation](https://reactnavigation.org/) - Routing and navigation for your React Native apps.
+- API
+  - [Spoonacular API](https://spoonacular.com/food-api) - The only food API you'll ever need.
 
 ---
 
