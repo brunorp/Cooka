@@ -55,6 +55,8 @@ git clone https://github.com/brunorp/Cooka
 
 #### Android
 
+- `$ npm install`
+
 - `$ react-native run-android`
 
 #### iOS - _MAC Only_
