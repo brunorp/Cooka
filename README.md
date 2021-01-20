@@ -18,7 +18,7 @@
 
 ![Alt text](https://i.imgur.com/TLEaoIx.jpg "Menu")
 ![Alt text](https://i.imgur.com/sFOS2DM.jpg "Results")
-![Alt text](https://i.imgur.com/kGzrzoD.jpg "Instructions")
+![Alt text](https://i.imgur.com/W6OP2eg.jpg "Instructions")
 ---
 
 ## Table of Contents
